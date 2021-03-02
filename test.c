@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 
 #include "list.h"
 
@@ -33,10 +34,11 @@ static void list_display(node_t *list) {
 
 int main(int argc, char **argv) {
     size_t count = 20;
+    srandom(time(0));
 
     node_t *list = NULL;
     while (count--)
-        list = list_make_node_t(list, random() % 1024);
+      list = list_make_node_t(list, random() % 1024);
 
     list_display(list);
     quicksort(&list);
