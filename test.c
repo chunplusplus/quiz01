@@ -6,7 +6,8 @@
 
 #include "list.h"
 
-static bool list_is_ordered(node_t *list) {
+static bool list_is_ordered(node_t *list)
+{
     bool first = true;
     int value;
     while (list) {
@@ -23,7 +24,8 @@ static bool list_is_ordered(node_t *list) {
     return true;
 }
 
-static void list_display(node_t *list) {
+static void list_display(node_t *list)
+{
     printf("%s IN ORDER : ", list_is_ordered(list) ? "   " : "NOT");
     while (list) {
         printf("%d ", list->value);
@@ -32,13 +34,14 @@ static void list_display(node_t *list) {
     printf("\n");
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
     size_t count = 20;
     srandom(time(0));
 
     node_t *list = NULL;
     while (count--)
-      list = list_make_node_t(list, random() % 1024);
+        list = list_make_node_t(list, random() % 1024);
 
     list_display(list);
     quicksort(&list);
@@ -49,4 +52,4 @@ int main(int argc, char **argv) {
 
     list_free(&list);
     return EXIT_SUCCESS;
-}        
+}
